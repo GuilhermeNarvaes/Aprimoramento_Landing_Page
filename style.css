@@ -121,7 +121,7 @@ gap: 12px;
 
 .logo__img {
 height: 35px;
-width: auto;
+width: 35px;
 object-fit: contain;
 }
 .header__logo span {
