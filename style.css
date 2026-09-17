@@ -235,7 +235,7 @@ box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 font-size: 0.8rem;
 color: var(--color-text-muted);
 margin-top: 8px;
-text-align: center;
+text-align: left;
 }
 /*====================================================================
 5. SEÇÃO DE BENEFÍCIOS (.beneficios) COM CSS GRID
