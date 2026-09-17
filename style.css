@@ -114,6 +114,15 @@ font-size: 24px;
 font-weight: bold;
 text-shadow: 0 0 10px #00f2fe;
 text-decoration: none;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.logo__img {
+height: 35px;
+width: auto;
+object-fit: contain;
 }
 .header__logo span {
 color: var(--color-primary);
