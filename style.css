@@ -1,388 +1,393 @@
-/* Ativa o deslize suave na página inteira */
-html {
-scroll-behavior: smooth;
-/* Evita que o cabeçalho fixo tape o topo da seção ao rolar */
-scroll-padding-top: 90px;
-}
-
-
-/* CABEÇALHO FIXO E FOSCO (GLASSMORPHISM) */
-.header {
-position: sticky; /* Mantém o cabeçalho fixo no topo ao rolar */
-top: 0;
-z-index: 1000; /* Garante que o menu fique por cima de tudo */
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 16px 8%;
-/* Efeito de Vidro: Fundo semi-transparente + Desfoque */
-background: rgba(15, 23, 42, 0.75); /* Cor escura com 75% de opacidade */
-backdrop-filter: blur(12px); /* Desfoca o conteúdo que passa por trás */
--webkit-backdrop-filter: blur(12px); /* Suporte para navegadores Safari */
-border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil de vidro */
-}
-
-
-/* TÍTULO PRINCIPAL COM DEGRADÊ */
-.hero__title {
-font-size: 2.75rem;
-font-weight: 800;
-line-height: 1.2;
-/* Aplica o degradê de cores (da esquerda para a direita) */
-background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-/* "Corta" o fundo no formato exato do texto */
--webkit-background-clip: text;
-background-clip: text;
-/* Torna o texto transparente para revelar o degradê do fundo */
--webkit-text-fill-color: transparent;
-color: transparent;
-}
-
-
 /* ====================================================================
 1. VARIÁVEIS CSS (:root) & RESET BÁSICO
 =====================================================================*/
 :root {
-/* Paleta de Cores */
---bg-main: #0f172a; /* Azul bem escuro (Fundo do site) */
---bg-card: #1e293b; /* Azul escuro (Cards e containers) */
---bg-glass: rgba(15, 23, 42, 0.75); /* Fundo translúcido para o efeito vidro */
---color-primary: #6366f1; /* Índigo / Roxo */
---color-primary-hover: #4f46e5;
---color-secondary: #ec4899; /* Rosa destaque */
---color-text: #f8fafc; /* Texto principal (Branco) */
---color-text-muted: #94a3b8; /* Texto secundário (Cinza) */
---color-border: #334155; /* Bordas sutis */
-/* Fontes e Tamanhos */
---font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-sans-serif;
---radius-sm: 8px;
---radius-md: 12px;
---radius-full: 999px;
-/* Transições de Animação */
---transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Paleta de Cores */
+  --bg-main: #0f172a;
+  --bg-card: #1e293b;
+  --bg-glass: rgba(15, 23, 42, 0.75);
+  --color-primary: #6366f1;
+  --color-primary-hover: #4f46e5;
+  --color-secondary: #ec4899;
+  --color-text: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-border: #334155;
+
+  /* Fontes e Tamanhos */
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-full: 999px;
+
+  /* Transições de Animação */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 /* Reset universal e ativação do Smooth Scroll */
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-html {
-scroll-behavior: smooth; /* 🌊 NAVEGAÇÃO SUAVE */
-scroll-padding-top: 90px; /* Evita que o header fixo tape o topo da seção ao rolar */
-font-family: var(--font-main);
-background-color: var(--bg-main);
-color: var(--color-text);
-}
-body {
-line-height: 1.6;
-overflow-x: hidden;
-}
-/* Utilitário de Acessibilidade (Invisível na tela, visível para leitores de tela) */
-.sr-only {
-position: absolute;
 
-width: 1px;
-height: 1px;
-padding: 0;
-margin: -1px;
-overflow: hidden;
-clip: rect(0, 0, 0, 0);
-border: 0;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+  font-family: var(--font-main);
+  background-color: var(--bg-main);
+  color: var(--color-text);
 }
+
+body {
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Utilitário de Acessibilidade */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 /* ====================================================================
 2. CABEÇALHO FIXO COM GLASSMORPHISM (.header)
 =================================================================== */
 .header {
-position: sticky; /* Fixa no topo ao rolar */
-top: 0;
-z-index: 1000;
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 16px 8%;
-/* 💎 EFEITO DE VIDRO (GLASSMORPHISM) */
-background: var(--bg-glass);
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-.header__logo {
-color: #00f2fe;
-font-size: 24px;
-font-weight: bold;
-text-shadow: 0 0 10px #00f2fe;
-text-decoration: none;
-display: flex;
-align-items: center;
-gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 8%;
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* 🟢 ALTERAÇÃO: Container do Logo e Imagem */
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header__logo {
+  color: #00f2fe;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 0 0 10px #00f2fe;
+  text-decoration: none;
+}
+
+/* 🟢 ALTERAÇÃO: Tamanho e proporção do Alien Logo */
 .logo__img {
-height: 35px;
-width: 35px;
-object-fit: contain;
+  height: 36px;
+  width: auto;
+  object-fit: contain;
 }
-.header__logo span {
-color: var(--color-primary);
-}
+
 .header__nav {
-display: flex;
-gap: 28px;
+  display: flex;
+  gap: 28px;
 }
+
 .header__link {
-color: var(--color-text-muted);
-text-decoration: none;
-font-size: 0.95rem;
-font-weight: 500;
-transition: var(--transition);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: var(--transition);
 }
 
 .header__link:hover {
-color: var(--color-primary);
+  color: var(--color-primary);
 }
+
 /* ====================================================================
 3. BOTÕES REUTILIZÁVEIS (.btn)
 =================================================================== */
 .btn {
-display: inline-flex;
-align-items: center;
-justify-content: center;
-font-weight: 600;
-text-decoration: none;
-border-radius: var(--radius-sm);
-border: none;
-cursor: pointer;
-transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
 }
+
 .btn--sm {
-padding: 8px 16px;
-font-size: 0.875rem;
+  padding: 8px 16px;
+  font-size: 0.875rem;
 }
+
 .btn--lg {
-padding: 14px 28px;
-font-size: 1rem;
+  padding: 14px 28px;
+  font-size: 1rem;
 }
+
 .btn--primary {
-background-color: var(--color-primary);
-color: #ffffff;
+  background-color: var(--color-primary);
+  color: #ffffff;
 }
+
 .btn--primary:hover {
-background-color: var(--color-primary-hover);
-transform: translateY(-2px);
-box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
 }
+
 .btn--outline {
-background-color: transparent;
-color: var(--color-text);
-border: 1px solid var(--color-border);
+  background-color: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
 }
+
 .btn--outline:hover {
-border-color: var(--color-primary);
-background-color: rgba(99, 102, 241, 0.1);
+  border-color: var(--color-primary);
+  background-color: rgba(99, 102, 241, 0.1);
 }
 
 /* ====================================================================
 4. SEÇÃO HERO (.hero) COM TEXTO EM DEGRADÊ
 =================================================================== */
 .hero {
-display: flex;
-align-items: center;
-justify-content: space-between;
-gap: 48px;
-padding: 80px 8%;
-min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  padding: 80px 8%;
+  min-height: calc(100vh - 80px);
 }
+
 .hero__content {
-flex: 1;
-max-width: 600px;
+  flex: 1;
+  max-width: 600px;
 }
+
 .tag {
-display: inline-block;
-padding: 6px 14px;
-border-radius: var(--radius-full);
-background-color: rgba(99, 102, 241, 0.15);
-color: var(--color-primary);
-font-size: 0.8rem;
-font-weight: 700;
-margin-bottom: 20px;
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background-color: rgba(99, 102, 241, 0.15);
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
-/* 🎨 TÍTULO COM DEGRADÊ MODERNO (GRADIENT TEXT) */
+
 .hero__title {
-font-size: 3rem;
-font-weight: 800;
-line-height: 1.15;
-margin-bottom: 20px;
-background: linear-gradient(135deg, #ffffff 0%, #6366f1 50%, #ec4899 100%);
--webkit-background-clip: text;
-background-clip: text;
--webkit-text-fill-color: transparent;
-color: transparent;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #6366f1 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
+
 .hero__description {
-font-size: 1.125rem;
-color: var(--color-text-muted);
-margin-bottom: 32px;
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  margin-bottom: 32px;
 }
+
 .hero__cta-group {
-display: flex;
-gap: 16px;
+  display: flex;
+  gap: 16px;
 }
 
 .hero__image-wrapper {
-flex: 1;
+  flex: 1;
 }
+
 .hero__img {
-width: 100%;
-max-width: 520px;
-border-radius: var(--radius-md);
-border: 1px solid var(--color-border);
-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 520px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
+
 .hero__caption {
-font-size: 0.8rem;
-color: var(--color-text-muted);
-margin-top: 8px;
-text-align: left;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 8px;
+  text-align: left;
 }
-/*====================================================================
-5. SEÇÃO DE BENEFÍCIOS (.beneficios) COM CSS GRID
+
+/* ====================================================================
+5. SEÇÃO DE BENEFÍCIOS (.beneficios) - LAYOUT HÍBRIDO
 ==================================================================== */
 .beneficios {
-padding: 90px 8%;
-background-color: rgba(255, 255, 255, 0.01);
+  padding: 80px 8%;
+  background-color: var(--bg-main);
 }
-.beneficios__header {
-text-align: center;
-margin-bottom: 56px;
-}
-.section-title {
-font-size: 2.25rem;
-font-weight: 700;
-margin-bottom: 12px;
-}
-.section-subtitle {
-color: var(--color-text-muted);
-font-size: 1.1rem;
-}
-/* 🧱 LAYOUT COM CSS GRID DInÂMICO */
-.beneficios__grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-gap: 32px;
-}
-.card {
 
-background-color: var(--bg-card);
-padding: 32px;
-border-radius: var(--radius-md);
-border: 1px solid var(--color-border);
-transition: var(--transition);
+.beneficios__header {
+  text-align: center;
+  margin-bottom: 48px;
 }
-/* Efeito de Elevação e Borda Colorida ao passar o mouse */
+
+/* 🟢 ALTERAÇÃO: Nomes de classes alinhados ao HTML */
+.beneficios__title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+
+.beneficios__subtitle {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+}
+
+.beneficios__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+/* 🟢 ALTERAÇÃO: Flexbox interno no Card */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: var(--transition);
+}
+
 .card:hover {
-transform: translateY(-8px);
-border-color: var(--color-primary);
-box-shadow: 0 12px 30px rgba(99, 102, 241, 0.2);
+  transform: translateY(-8px);
+  border-color: var(--color-primary);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.2);
 }
+
 .card--featured {
-border-color: rgba(99, 102, 241, 0.5);
-background: linear-gradient(180deg, var(--bg-card) 0%, rgba(99, 102, 241, 0.05) 100%);
+  border-color: rgba(99, 102, 241, 0.5);
+  background: linear-gradient(180deg, var(--bg-card) 0%, rgba(99, 102, 241, 0.08) 100%);
 }
+
 .card__icon {
-font-size: 2.5rem;
-margin-bottom: 16px;
+  font-size: 2.5rem;
+  margin-bottom: 16px;
 }
+
 .card__title {
-font-size: 1.25rem;
-margin-bottom: 12px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 12px;
 }
+
 .card__description {
-color: var(--color-text-muted);
-font-size: 0.95rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
-/*=====================================================================
+
+/* =====================================================================
 6. CAPTURA DE LEADS (.newsletter)
 ==================================================================== */
 .newsletter {
-padding: 90px 8%;
+  padding: 90px 8%;
 }
-.newsletter__container {
-background-color: var(--bg-card);
-border: 1px solid var(--color-border);
-border-radius: var(--radius-md);
-padding: 48px;
-text-align: center;
-max-width: 800px;
-margin: 0 auto;
-}
-.newsletter__form {
 
-display: flex;
-gap: 12px;
-margin-top: 32px;
-justify-content: center;
+.newsletter__container {
+  background-color: var(--bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 48px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
+
+.newsletter__form {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+  justify-content: center;
+}
+
 .newsletter__field {
-flex: 1;
-max-width: 400px;
+  flex: 1;
+  max-width: 400px;
 }
+
 .newsletter__input {
-width: 100%;
-padding: 14px 18px;
-border-radius: var(--radius-sm);
-border: 1px solid var(--color-border);
-background-color: var(--bg-main);
-color: var(--color-text);
-font-size: 1rem;
-outline: none;
-transition: var(--transition);
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--bg-main);
+  color: var(--color-text);
+  font-size: 1rem;
+  outline: none;
+  transition: var(--transition);
 }
+
 .newsletter__input:focus {
-border-color: var(--color-primary);
-box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
 }
+
 .btn--form {
-padding: 14px 24px;
+  padding: 14px 24px;
 }
-/*====================================================================
+
+/* ====================================================================
 7. RODAPÉ (.footer)
 ==================================================================== */
 .footer {
-padding: 32px 8%;
-border-top: 1px solid var(--color-border);
-text-align: center;
-color: var(--color-text-muted);
-font-size: 0.9rem;
+  padding: 32px 8%;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
 }
-/*====================================================================
+
+/* ====================================================================
 8. RESPONSIVIDADE (MEDIA QUERIES)
 ==================================================================== */
 @media (max-width: 868px) {
-.header__nav {
-display: none; /* Oculta o menu simples em telas pequenas */
-}
-.hero {
-
-flex-direction: column;
-text-align: center;
-padding-top: 40px;
-}
-.hero__title {
-font-size: 2.25rem;
-}
-.hero__cta-group {
-justify-content: center;
-}
-.newsletter__form {
-flex-direction: column;
-align-items: center;
-}
-.newsletter__field {
-width: 100%;
-}
-.btn--form {
-width: 100%;
-}
+  .header__nav {
+    display: none;
+  }
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 40px;
+  }
+  .hero__title {
+    font-size: 2.25rem;
+  }
+  .hero__cta-group {
+    justify-content: center;
+  }
+  .newsletter__form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .newsletter__field {
+    width: 100%;
+  }
+  .btn--form {
+    width: 100%;
+  }
 }

@@ -1,148 +1,123 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Naididas</title>
-<!-- 🌐 META TAGS OPEN GRAPH (Para WhatsApp, LinkedIn e Redes Sociais) -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Naididas">
-<meta property="og:description" content="Tecnologia de outro mundo">
-<meta property="og:image"
-content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&a
-uto=format&fit=crop">
-<meta property="og:url" content="https://aprimoramento-landing-page.vercel.app/">
-<!-- Configuração de Favicon (Ícone da Aba) -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg
-xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em'
-font-size='90'>🚀</text></svg>">
-<!-- Estilos CSS -->
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naididas</title>
+    <!-- 🌐 META TAGS OPEN GRAPH -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Naididas">
+    <meta property="og:description" content="Tecnologia de outro mundo">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:url" content="https://aprimoramento-landing-page.vercel.app/">
+    
+    <!-- Configuração de Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!--📌 CABEÇALHO COM GLASSMORPHISM (MANTÉM-SE FIXO AO ROLAR) -->
+
+<!-- 📌 CABEÇALHO COM GLASSMORPHISM (MANTÉM-SE FIXO AO ROLAR) -->
 <header class="header">
-<a href="#" class="header__logo">
-Naididas
-</a>
-<img
+    <!-- Grupo da Logo + Texto alinhados -->
+    <div class="header__brand">
+        <img src="alien.jpg" alt="Logo Naididas" class="logo__img">
+        <a href="#" class="header__logo">Naididas</a>
+    </div>
 
-src="Gemini_Generated_Image_z8zp53z8zp53z8zp.jpg" alt="imagem_do_logo"
+    <!-- Navegação interna funcional -->
+    <nav class="header__nav">
+        <a href="#beneficios" class="header__link">Benefícios</a>
+        <a href="#recursos" class="header__link">Recursos</a>
+        <a href="#newsletter" class="header__link">Novidades</a>
+    </nav>
 
-alt="Imagem da marca"
-class="logo__img">
-<nav class="header__nav">
-<a href="#beneficios" class="header__link">Benefícios</a>
-<a href="#recursos" class="header__link">Recursos</a>
-<a href="#newsletter" class="header__link">Novidades</a>
-</nav>
-<a href="#newsletter" class="btn btn--primary btn--sm">Comprar Agora</a>
+    <a href="#newsletter" class="btn btn--primary btn--sm">Comprar Agora</a>
 </header>
+
 <main>
-<!-- 🚀 SEÇÃO HERO (COM TÍTULO EM DEGRADÊ) -->
- <article id="recursos" class="card card--featured"></article>
-<section class="hero">
-<div class="hero__content">
-<span class="tag">✦ NOVO LANÇAMENTO 2026</span>
-<h1 class="hero__title">O tênis de alta performance desenvolvido com biotecnologia alienígena 
-    e materiais de última geração para revolucionar a prática esportiva.</h1>
-<p class="hero__description">
+    <!-- 🚀 SEÇÃO HERO -->
+    <section class="hero">
+        <div class="hero__content">
+            <span class="tag">✦ NOVO LANÇAMENTO 2026</span>
+            <h1 class="hero__title">O tênis de alta performance desenvolvido com biotecnologia alienígena e materiais de última geração para revolucionar a prática esportiva.</h1>
+            <p class="hero__description">
+                <strong>Solado OmniGrip:</strong> Emborrachado com padrão tátil adaptável que altera a aderência dependendo da superfície (asfalto, grama ou quadra) e das condições climáticas (seco ou molhado).
+            </p>
+            <div class="hero__cta-group">
+                <a href="#newsletter" class="btn btn--primary btn--lg">Comprar Agora</a>
+                <a href="#beneficios" class="btn btn--outline btn--lg">Saber Mais</a>
+            </div>
+        </div>
+        <div class="hero__image-wrapper">
+            <figure class="hero__figure">
+                <img src="Tenis Forza F250.png" alt="Tênis Forza F250 em destaque" class="hero__img">
+                <figcaption class="hero__caption">Novo Forza F250 da Naididas.</figcaption>
+            </figure>
+        </div>
+    </section>
 
-<strong>Solado OmniGrip:</strong> Emborrachado com padrão tátil adaptável que altera a aderência 
-dependendo da superfície (asfalto, grama ou quadra) e das condições climáticas (seco ou molhado).
-</p>
-<div class="hero__cta-group">
-<a href="#newsletter" class="btn btn--primary btn--lg">Comprar Agora</a>
-<a href="#beneficios" class="btn btn--outline btn--lg">Saber Mais</a>
-</div>
-</div>
-<div class="hero__image-wrapper">
-<figure class="hero__figure">
-<img
+    <!-- 🎁 SEÇÃO DE BENEFÍCIOS (LAYOUT HÍBRIDO CSS GRID + FLEXBOX) -->
+    <section id="beneficios" class="beneficios">
+        <div class="beneficios__header">
+            <h2 class="beneficios__title">Por que escolher o Forza F250?</h2>
+            <p class="beneficios__subtitle">Equilíbrio definitivo entre tecnologia do futuro, durabilidade extrema e design autêntico.</p>
+        </div>
 
-src="Tenis Forza F250.png" alt="Tênis Forza F250 em destaque"
+        <div class="beneficios__grid">
+            <!-- Card 1 -->
+            <article class="card">
+                <div class="card__icon">⚡</div>
+                <h3 class="card__title">Alta Performance</h3>
+                <p class="card__description">
+                    Além do visual ultra futurista com elementos bioluminescentes, o conforto anatômico do cabedal abraça os pés como uma segunda pele para evoluir suas marcas no esporte.
+                </p>
+            </article>
 
-alt="Imagem do produto"
-class="hero__img">
-<figcaption class="hero__caption">Novo Forza F250
+            <!-- Card 2 (Com ID #recursos vinculado ao menu) -->
+            <article id="recursos" class="card card--featured">
+                <div class="card__icon">🛡️</div>
+                <h3 class="card__title">Solado OmniGrip</h3>
+                <p class="card__description">
+                    Estrutura tátil adaptável que reconhece e altera seu nível de tração em tempo real no asfalto, grama ou quadra indoor, eliminando o risco de derrapagens.
+                </p>
+            </article>
 
-da Naididas.</figcaption>
-</figure>
-</div>
-</section>
-<!-- 🎁 SEÇÃO DE BENEFÍCIOS (CONSTRUÍDA COM CSS GRID RESPONSIVO) -->
-<section id="beneficios" class="beneficios">
-<div class="beneficios__header">
-<h2 class="section-title">Por que comprar o F250?</h2>
-<p class="section-subtitle">Investir no Forza F250 é garantir o equilíbrio definitivo entre tecnologia do futuro, 
-    durabilidade extrema e um design autêntico que se destaca em qualquer ambiente.</p>
-</div>
-<div class="beneficios__grid">
-<!-- Card 1 -->
-<article class="card">
-<div class="card__icon">⚡</div>
-<h3 class="card__title">Alta Performance</h3>
-<p class="card__description">
-Além do visual ultra futurista com elementos bioluminescentes, o conforto anatômico do cabedal abraça os pés 
-como uma segunda pele. Se você busca evoluir suas marcas no esporte e ostentar o que há de mais avançado no 
-mercado, o Forza F250 é a escolha certa para a sua rotina.
-</p>
-</article>
-<!-- Card 2 -->
-<article class="card card--featured">
-<div class="card__icon">️</div>
-<h3 class="card__title">OMNIGRIP</h3>
-<p class="card__description">
-            A grande inovação está no exclusivo solado OmniGrip, idealizado para resolver o maior desafio dos atletas: 
-            a oscilação de terreno e clima. Graças à sua estrutura tátil adaptável, o solado reconhece e altera seu 
-            nível de tração em tempo real, seja no asfalto seco, na grama molhada ou na quadra indoor. Isso significa 
-            aderência total e máxima estabilidade em qualquer condição, eliminando o risco de derrapagens e garantindo 
-            arranques e frenagens precisas com total segurança.
+            <!-- Card 3 -->
+            <article class="card">
+                <div class="card__icon">📊</div>
+                <h3 class="card__title">Estrutura de Titã</h3>
+                <p class="card__description">
+                    Moldado a partir de polímeros autorregenerativos com núcleo de levitação magnética que anula 80% do impacto, transformando passadas em impulso.
+                </p>
+            </article>
+        </div>
+    </section>
 
-</p>
-</article>
-<!-- Card 3 -->
-
-<article class="card">
-<div class="card__icon">📊</div>
-<h3 class="card__title">Estrutura</h3>
-<p class="card__description">
-            O FORZA F250 não foi desenhado em um estúdio terrestre; sua estrutura foi moldada a partir de polímeros 
-            autorregenerativos resgatados da órbita de Titã. Esqueça os cadarços e o amortecimento convencional: 
-            a sola deste tênis utiliza um núcleo de levitação magnética de baixa frequência que anula 80% do impacto 
-            contra o solo, transformando cada passada em um impulso gravitacional.
-
-</p>
-</article>
-</div>
-</section>
-<!-- 📩 SEÇÃO DE CAPTURA DE LEADS (NEWSLETTER / FORMULÁRIO) -->
-<section id="newsletter" class="newsletter">
-<div class="newsletter__container">
-<h2 class="section-title">Receba Ofertas Exclusivas e Novidades</h2>
-<p class="section-subtitle">Cadastre seu e-mail e receba um cupom de 20% OFF  
-na primeira compra dos produtos Cobritos.</p>
-<form class="newsletter__form" action="#" method="POST">
-<div class="newsletter__field">
-<label for="email-input" class="sr-only">Seu e-mail principal</label>
-<input type="email"
-id="email-input"
-class="newsletter__input"
-placeholder="Digite seu melhor e-mail..."
-required>
-</div>
-<button type="submit" class="btn btn--primary btn--form">Quero Desconto
-
-🎁</button>
-</form>
-</div>
-</section>
+    <!-- 📩 SEÇÃO DE CAPTURA DE LEADS -->
+    <section id="newsletter" class="newsletter">
+        <div class="newsletter__container">
+            <h2 class="section-title">Receba Ofertas Exclusivas e Novidades</h2>
+            <p class="section-subtitle">Cadastre seu e-mail e receba um cupom de 20% OFF na primeira compra dos produtos Naididas.</p>
+            <form class="newsletter__form" action="#" method="POST">
+                <div class="newsletter__field">
+                    <label for="email-input" class="sr-only">Seu e-mail principal</label>
+                    <input type="email" id="email-input" class="newsletter__input" placeholder="Digite seu melhor e-mail..." required>
+                </div>
+                <button type="submit" class="btn btn--primary btn--form">Quero Desconto 🎁</button>
+            </form>
+        </div>
+    </section>
 </main>
-<!-- 🦶 RODAPÉ DA PÁGINA -->
+
+<!-- 🦶 RODAPÉ -->
 <footer class="footer">
-<p class="footer__text">
-© 2026 <strong>NAIDIDAS</strong>. Todos os direitos reservados.
-</p>
+    <p class="footer__text">
+        © 2026 <strong>NAIDIDAS</strong>. Todos os direitos reservados.
+    </p>
 </footer>
+
 </body>
 </html>
