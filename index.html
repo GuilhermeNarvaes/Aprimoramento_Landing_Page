@@ -1,16 +1,36 @@
-<!--📌 CABEÇALHO COM A NOVA ORDEM E NOME DO BOTÃO -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naididas</title>
+    <!-- 🌐 META TAGS OPEN GRAPH -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Naididas">
+    <meta property="og:description" content="Tecnologia de outro mundo">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:url" content="https://aprimoramento-landing-page.vercel.app/">
+    
+    <!-- Configuração de Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 📌 CABEÇALHO COM GLASSMORPHISM (MANTÉM-SE FIXO AO ROLAR) -->
 <header class="header">
+    <!-- Grupo da Logo + Texto alinhados -->
     <div class="header__brand">
-        <img src="alien.jpg" alt="Logo Naididas" class="logo__img">
+        <img src="Gemini_Generated_Image_z8zp53z8zp53z8zp.jpg" alt="Logo Naididas" class="logo__img">
         <a href="#" class="header__logo">Naididas</a>
     </div>
 
+    <!-- Navegação interna funcional -->
     <nav class="header__nav">
-        <!-- 1. Descrição (aponta para o parágrafo da Hero) -->
         <a href="#descricao" class="header__link">Descrição</a>
-        <!-- 2. Benefícios -->
-        <a href="#beneficios" class="header__link">Benefícios</a>
-        <!-- 3. Novidades -->
+        <a href="#benefícios" class="header__link">Benefícios</a>
         <a href="#newsletter" class="header__link">Novidades</a>
     </nav>
 
@@ -23,12 +43,10 @@
         <div class="hero__content">
             <span class="tag">✦ NOVO LANÇAMENTO 2026</span>
             <h1 class="hero__title">O tênis de alta performance desenvolvido com biotecnologia alienígena e materiais de última geração para revolucionar a prática esportiva.</h1>
-            
-            <!-- 🟢 ID ADICIONADO PARA A ANCORAGEM DO BOTÃO DESCRIÇÃO -->
-            <p id="descricao" class="hero__description">
+            <p class="hero__description">
+                <p id="descricao" class="hero__descricao"></p>
                 <strong>Solado OmniGrip:</strong> Emborrachado com padrão tátil adaptável que altera a aderência dependendo da superfície (asfalto, grama ou quadra) e das condições climáticas (seco ou molhado).
             </p>
-            
             <div class="hero__cta-group">
                 <a href="#newsletter" class="btn btn--primary btn--lg">Comprar Agora</a>
                 <a href="#beneficios" class="btn btn--outline btn--lg">Saber Mais</a>
@@ -94,6 +112,7 @@
         </div>
     </section>
 </main>
+
 <!-- 🟢 BOTÃO FLUTUANTE DO WHATSAPP (Adicionado antes do fechamento do body) -->
 <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-btn" aria-label="Fale conosco no WhatsApp">
     💬
