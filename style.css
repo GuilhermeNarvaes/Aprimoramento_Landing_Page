@@ -1,11 +1,11 @@
 /* ====================================================================
-1. VARIÁVEIS CSS (:root) & RESET BÁSICO
+1. VARIÁVEIS CSS (:root) & RESET BÁSICO (TEMA ESCURO PADRÃO)
 =====================================================================*/
 :root {
-  /* Paleta de Cores */
+  /* Paleta de Cores (Dark Mode) */
   --bg-main: #0f172a;
   --bg-card: #1e293b;
-  --bg-glass: rgba(15, 23, 42, 0.75);
+  --bg-glass: rgba(15, 23, 42, 0.85);
   --color-primary: #6366f1;
   --color-primary-hover: #4f46e5;
   --color-secondary: #ec4899;
@@ -23,7 +23,22 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Reset universal e ativação do Smooth Scroll */
+/* Modo Claro Automático */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-glass: rgba(255, 255, 255, 0.85);
+    --color-primary: #4f46e5;
+    --color-primary-hover: #4338ca;
+    --color-secondary: #db2777;
+    --color-text: #0f172a;
+    --color-text-muted: #475569;
+    --color-border: #e2e8f0;
+  }
+}
+
+/* Reset universal */
 * {
   margin: 0;
   padding: 0;
@@ -36,14 +51,15 @@ html {
   font-family: var(--font-main);
   background-color: var(--bg-main);
   color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
 }
 
-/* Utilitário de Acessibilidade */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -56,7 +72,7 @@ body {
 }
 
 /* ====================================================================
-2. CABEÇALHO FIXO COM GLASSMORPHISM (.header)
+2. CABEÇALHO FIXO (.header)
 =================================================================== */
 .header {
   position: sticky;
@@ -69,10 +85,9 @@ body {
   background: var(--bg-glass);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-border);
 }
 
-/* 🟢 ALTERAÇÃO: Container do Logo e Imagem */
 .header__brand {
   display: flex;
   align-items: center;
@@ -80,14 +95,12 @@ body {
 }
 
 .header__logo {
-  color: #00f2fe;
+  color: var(--color-primary);
   font-size: 24px;
   font-weight: bold;
-  text-shadow: 0 0 10px #00f2fe;
   text-decoration: none;
 }
 
-/* 🟢 ALTERAÇÃO: Tamanho e proporção do Alien Logo */
 .logo__img {
   height: 36px;
   width: auto;
@@ -159,7 +172,7 @@ body {
 }
 
 /* ====================================================================
-4. SEÇÃO HERO (.hero) COM TEXTO EM DEGRADÊ
+4. SEÇÃO HERO (.hero)
 =================================================================== */
 .hero {
   display: flex;
@@ -187,15 +200,14 @@ body {
 }
 
 .hero__title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.2;
   margin-bottom: 20px;
-  background: linear-gradient(135deg, #ffffff 0%, #6366f1 50%, #ec4899 100%);
+  background: linear-gradient(135deg, var(--color-text) 0%, var(--color-primary) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent;
 }
 
 .hero__description {
@@ -207,18 +219,21 @@ body {
 .hero__cta-group {
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .hero__image-wrapper {
   flex: 1;
+  width: 100%;
 }
 
 .hero__img {
   width: 100%;
   max-width: 520px;
+  height: auto;
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .hero__caption {
@@ -229,7 +244,7 @@ body {
 }
 
 /* ====================================================================
-5. SEÇÃO DE BENEFÍCIOS (.beneficios) - LAYOUT HÍBRIDO
+5. SEÇÃO DE BENEFÍCIOS (.beneficios)
 ==================================================================== */
 .beneficios {
   padding: 80px 8%;
@@ -241,7 +256,6 @@ body {
   margin-bottom: 48px;
 }
 
-/* 🟢 ALTERAÇÃO: Nomes de classes alinhados ao HTML */
 .beneficios__title {
   font-size: 2.25rem;
   font-weight: 700;
@@ -260,7 +274,6 @@ body {
   gap: 32px;
 }
 
-/* 🟢 ALTERAÇÃO: Flexbox interno no Card */
 .card {
   background-color: var(--bg-card);
   border: 1px solid var(--color-border);
@@ -275,7 +288,7 @@ body {
 .card:hover {
   transform: translateY(-8px);
   border-color: var(--color-primary);
-  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.15);
 }
 
 .card--featured {
@@ -301,18 +314,93 @@ body {
   line-height: 1.6;
 }
 
-/* =====================================================================
-6. CAPTURA DE LEADS (.newsletter)
+/* ====================================================================
+6. PERGUNTAS FREQUENTES (.faq)
+==================================================================== */
+.faq {
+  padding: 80px 8%;
+  background-color: var(--bg-main);
+}
+
+.faq__header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.faq__title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+
+.faq__subtitle {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+}
+
+.faq__container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq__item {
+  background-color: var(--bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.faq__item[open] {
+  border-color: var(--color-primary);
+}
+
+.faq__question {
+  padding: 20px 24px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.faq__question::after {
+  content: '➕';
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.faq__item[open] .faq__question::after {
+  content: '➖';
+}
+
+.faq__answer {
+  padding: 0 24px 20px 24px;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ====================================================================
+7. CAPTURA DE LEADS (.newsletter)
 ==================================================================== */
 .newsletter {
-  padding: 90px 8%;
+  padding: 80px 8%;
 }
 
 .newsletter__container {
   background-color: var(--bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: 48px;
+  padding: 48px 24px;
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
@@ -352,7 +440,7 @@ body {
 }
 
 /* ====================================================================
-7. RODAPÉ (.footer)
+8. RODAPÉ E BOTÃO FLUTUANTE
 ==================================================================== */
 .footer {
   padding: 32px 8%;
@@ -362,36 +450,6 @@ body {
   font-size: 0.9rem;
 }
 
-/* ====================================================================
-8. RESPONSIVIDADE (MEDIA QUERIES)
-==================================================================== */
-@media (max-width: 868px) {
-  .header__nav {
-    display: none;
-  }
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding-top: 40px;
-  }
-  .hero__title {
-    font-size: 2.25rem;
-  }
-  .hero__cta-group {
-    justify-content: center;
-  }
-  .newsletter__form {
-    flex-direction: column;
-    align-items: center;
-  }
-  .newsletter__field {
-    width: 100%;
-  }
-  .btn--form {
-    width: 100%;
-  }
-}
-
 .whatsapp-btn {
   position: fixed;
   bottom: 24px;
@@ -399,7 +457,7 @@ body {
   z-index: 9999;
   width: 56px;
   height: 56px;
-  background-color: #25d366; /* Verde oficial do WhatsApp */
+  background-color: #25d366;
   color: #ffffff;
   border-radius: var(--radius-full);
   display: flex;
@@ -415,4 +473,78 @@ body {
   background-color: #1eb954;
   transform: scale(1.1);
   box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
+}
+
+/* ====================================================================
+9. MEDIA QUERIES (RESPONSIVIDADE MÓVEL)
+==================================================================== */
+@media (max-width: 768px) {
+  .header {
+    padding: 14px 5%;
+  }
+
+  .header__nav {
+    display: none;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 5%;
+    min-height: auto;
+  }
+
+  .hero__title {
+    font-size: 1.85rem;
+  }
+
+  .hero__caption {
+    text-align: center;
+  }
+
+  .hero__cta-group {
+    justify-content: center;
+  }
+
+  .newsletter__form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .newsletter__field, .btn--form {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+10. ACESSIBILIDADE: FOCO VISÍVEL PARA NAVEGAÇÃO VIA TECLADO (TAB)
+========================================================================== */
+:focus-visible {
+  outline: 3px solid var(--color-primary, #6366f1);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+11. ESTILIZAÇÃO PARA IMPRESSÃO (@media print)
+========================================================================== */
+@media print {
+  .header,
+  .btn,
+  .newsletter,
+  .whatsapp-btn,
+  .faq__question::after {
+    display: none !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .card, .faq__item {
+    border: 1px solid #ccc !important;
+    background: transparent !important;
+    break-inside: avoid;
+  }
 }

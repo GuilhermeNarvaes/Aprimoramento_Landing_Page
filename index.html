@@ -3,34 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naididas</title>
-    <!-- 🌐 META TAGS OPEN GRAPH -->
+    <title>Naididas - Forza F250 | Tênis de Alta Performance</title>
+
+    <!-- 🔍 1. SEO TÉCNICO E INDEXAÇÃO -->
+    <meta name="description" content="Tênis Naididas Forza F250: alta performance com biotecnologia alienígena, solado OmniGrip e levitação magnética para revolucionar sua prática esportiva.">
+    <meta name="keywords" content="tênis esportivo, alta performance, Naididas, Forza F250, OmniGrip, tênis para corrida, tecnologia esportiva">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aprimoramento-landing-page.vercel.app/">
+
+    <!-- 🌐 META TAGS OPEN GRAPH (REDES SOCIAIS) -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Naididas">
-    <meta property="og:description" content="Tecnologia de outro mundo">
+    <meta property="og:title" content="Naididas - Forza F250">
+    <meta property="og:description" content="Tecnologia de outro mundo para alta performance esportiva.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop">
     <meta property="og:url" content="https://aprimoramento-landing-page.vercel.app/">
     
-    <!-- Configuração de Favicon -->
+    <!-- FAVICON -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
     
-    <!-- Estilos CSS -->
+    <!-- ESTILOS CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- 📌 CABEÇALHO COM GLASSMORPHISM (MANTÉM-SE FIXO AO ROLAR) -->
+<!-- 📌 CABEÇALHO FIXO COM GLASSMORPHISM -->
 <header class="header">
-    <!-- Grupo da Logo + Texto alinhados -->
     <div class="header__brand">
-        <img src="Gemini_Generated_Image_z8zp53z8zp53z8zp.jpg" alt="Logo Naididas" class="logo__img">
+        <!--⚡ 2. PERFORMANCE: Dimensões explícitas na logo -->
+        <img src="Gemini_Generated_Image_z8zp53z8zp53z8zp.jpg" alt="Logo Naididas" class="logo__img" width="36" height="36">
         <a href="#" class="header__logo">Naididas</a>
     </div>
 
-    <!-- Navegação interna funcional -->
     <nav class="header__nav">
         <a href="#descricao" class="header__link">Descrição</a>
         <a href="#beneficios" class="header__link">Benefícios</a>
+        <a href="#faq" class="header__link">FAQ</a>
         <a href="#newsletter" class="header__link">Novidades</a>
     </nav>
 
@@ -42,9 +49,8 @@
     <section class="hero">
         <div class="hero__content">
             <span class="tag">✦ NOVO LANÇAMENTO 2026</span>
-            <h1 class="hero__title">O tênis de alta performance desenvolvido com biotecnologia alienígena e materiais de última geração para revolucionar a prática esportiva.</h1>
-            <p class="hero__description">
-                <p id="descricao" class="hero__descricao"></p>
+            <h1 class="hero__title">O tênis de alta performance desenvolvido com biotecnologia alienígena e materiais de última geração.</h1>
+            <p id="descricao" class="hero__description">
                 <strong>Solado OmniGrip:</strong> Emborrachado com padrão tátil adaptável que altera a aderência dependendo da superfície (asfalto, grama ou quadra) e das condições climáticas (seco ou molhado).
             </p>
             <div class="hero__cta-group">
@@ -54,13 +60,19 @@
         </div>
         <div class="hero__image-wrapper">
             <figure class="hero__figure">
-                <img src="Tenis Forza F250.png" alt="Tênis Forza F250 em destaque" class="hero__img">
+                <!-- ⚡ 2. PERFORMANCE DE IMAGENS: loading="lazy", width e height explícitos -->
+                <img src="Tenis Forza F250.png" 
+                     alt="Tênis Forza F250 da Naididas em cor azul bioluminescente" 
+                     class="hero__img"
+                     loading="lazy"
+                     width="520"
+                     height="350">
                 <figcaption class="hero__caption">Novo Forza F250 da Naididas.</figcaption>
             </figure>
         </div>
     </section>
 
-    <!-- 🎁 SEÇÃO DE BENEFÍCIOS (LAYOUT HÍBRIDO CSS GRID + FLEXBOX) -->
+    <!-- 🎁 SEÇÃO DE BENEFÍCIOS -->
     <section id="beneficios" class="beneficios">
         <div class="beneficios__header">
             <h2 class="beneficios__title">Por que escolher o Forza F250?</h2>
@@ -68,7 +80,6 @@
         </div>
 
         <div class="beneficios__grid">
-            <!-- Card 1 -->
             <article class="card">
                 <div class="card__icon">⚡</div>
                 <h3 class="card__title">Alta Performance</h3>
@@ -77,7 +88,6 @@
                 </p>
             </article>
 
-            <!-- Card 2 (Com ID #recursos vinculado ao menu) -->
             <article id="recursos" class="card card--featured">
                 <div class="card__icon">🛡️</div>
                 <h3 class="card__title">Solado OmniGrip</h3>
@@ -86,7 +96,6 @@
                 </p>
             </article>
 
-            <!-- Card 3 -->
             <article class="card">
                 <div class="card__icon">📊</div>
                 <h3 class="card__title">Estrutura de Titã</h3>
@@ -97,11 +106,49 @@
         </div>
     </section>
 
-    <!-- 📩 SEÇÃO DE CAPTURA DE LEADS -->
+    <!-- ❓ SEÇÃO FAQ -->
+    <section id="faq" class="faq">
+        <div class="faq__header">
+            <h2 class="faq__title">Perguntas Frequentes</h2>
+            <p class="faq__subtitle">Tire suas dúvidas sobre o Forza F250 e nossa tecnologia.</p>
+        </div>
+
+        <div class="faq__container">
+            <details class="faq__item">
+                <summary class="faq__question">Como funciona a tecnologia de amortecimento do Forza F250?</summary>
+                <div class="faq__answer">
+                    <p>Utilizamos um núcleo de levitação magnética de baixa frequência que anula até 80% do impacto contra o solo, convertendo a energia da pisada em impulso para o próximo passo.</p>
+                </div>
+            </details>
+
+            <details class="faq__item">
+                <summary class="faq__question">O solado OmniGrip funciona em superfícies molhadas?</summary>
+                <div class="faq__answer">
+                    <p>Sim! A estrutura tátil adaptável altera a textura em tempo real conforme reconhece umidade ou mudanças de terreno, garantindo máxima tração e aderência.</p>
+                </div>
+            </details>
+
+            <details class="faq__item">
+                <summary class="faq__question">Qual é o prazo de entrega do produto?</summary>
+                <div class="faq__answer">
+                    <p>O envio é realizado em até 48 horas após a confirmação do pagamento. O prazo de entrega varia de 3 a 7 dias úteis de acordo com a sua região.</p>
+                </div>
+            </details>
+
+            <details class="faq__item">
+                <summary class="faq__question">Como posso acionar a garantia ou efetuar uma troca?</summary>
+                <div class="faq__answer">
+                    <p>Você pode solicitar a troca ou devolução em até 30 dias após o recebimento através do nosso canal de atendimento via WhatsApp ou e-mail de suporte.</p>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <!-- 📩 CAPTURA DE LEADS -->
     <section id="newsletter" class="newsletter">
         <div class="newsletter__container">
             <h2 class="section-title">Receba Ofertas Exclusivas e Novidades</h2>
-            <p class="section-subtitle">Cadastre seu e-mail e receba um cupom de 20% OFF na primeira compra dos produtos COBRITOS.</p>
+            <p class="section-subtitle">Cadastre seu e-mail e receba um cupom de 20% OFF na primeira compra.</p>
             <form class="newsletter__form" action="#" method="POST">
                 <div class="newsletter__field">
                     <label for="email-input" class="sr-only">Seu e-mail principal</label>
@@ -113,7 +160,7 @@
     </section>
 </main>
 
-<!-- 🟢 BOTÃO FLUTUANTE DO WHATSAPP (Adicionado antes do fechamento do body) -->
+<!-- 🟢 BOTÃO FLUTUANTE DO WHATSAPP -->
 <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-btn" aria-label="Fale conosco no WhatsApp">
     💬
 </a>
