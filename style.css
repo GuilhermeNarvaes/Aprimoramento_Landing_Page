@@ -2,40 +2,24 @@
 1. VARIÁVEIS CSS (:root) & RESET BÁSICO (TEMA ESCURO PADRÃO)
 =====================================================================*/
 :root {
-  /* Paleta de Cores (Dark Mode) */
   --bg-main: #0f172a;
   --bg-card: #1e293b;
   --bg-glass: rgba(15, 23, 42, 0.85);
   --color-primary: #6366f1;
-  --color-primary-hover: #4f46e5;
-  --color-secondary: #ec4899;
   --color-text: #f8fafc;
   --color-text-muted: #94a3b8;
   --color-border: #334155;
-
-  /* Fontes e Tamanhos */
-  --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-full: 999px;
-
-  /* Transições de Animação */
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Modo Claro Automático */
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg-main: #f8fafc;
-    --bg-card: #ffffff;
-    --bg-glass: rgba(255, 255, 255, 0.85);
-    --color-primary: #4f46e5;
-    --color-primary-hover: #4338ca;
-    --color-secondary: #db2777;
-    --color-text: #0f172a;
-    --color-text-muted: #475569;
-    --color-border: #e2e8f0;
-  }
+/* Tema Claro (Aplicado via classe .light-mode) */
+body.light-mode {
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  --color-primary: #4f46e5;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-border: #e2e8f0;
 }
 
 /* Reset universal */

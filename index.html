@@ -29,7 +29,6 @@
 <!-- 📌 CABEÇALHO FIXO COM GLASSMORPHISM -->
 <header class="header">
     <div class="header__brand">
-        <!--⚡ 2. PERFORMANCE: Dimensões explícitas na logo -->
         <img src="Gemini_Generated_Image_z8zp53z8zp53z8zp.jpg" alt="Logo Naididas" class="logo__img" width="36" height="36">
         <a href="#" class="header__logo">Naididas</a>
     </div>
@@ -40,6 +39,11 @@
         <a href="#faq" class="header__link">FAQ</a>
         <a href="#newsletter" class="header__link">Novidades</a>
     </nav>
+
+    <!-- 🌙 BOTÃO DE TEMA -->
+    <button id="theme-toggle" class="btn btn--outline btn--sm" aria-label="Alternar tema">
+        🌙
+    </button>
 
     <a href="#newsletter" class="btn btn--primary btn--sm">Comprar Agora</a>
 </header>
@@ -64,7 +68,7 @@
                 <img src="Tenis Forza F250.png" 
                      alt="Tênis Forza F250 da Naididas em cor azul bioluminescente" 
                      class="hero__img"
-                     loading="lazy"
+                     fetchpriority="high"
                      width="520"
                      height="350">
                 <figcaption class="hero__caption">Novo Forza F250 da Naididas.</figcaption>
