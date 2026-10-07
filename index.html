@@ -175,6 +175,33 @@
         © 2026 <strong>NAIDIDAS</strong>. Todos os direitos reservados.
     </p>
 </footer>
+<script>
+  const themeToggleBtn = document.getElementById('theme-toggle');
 
+  // Verifica se o usuário já tinha uma preferência salva
+  const currentTheme = localStorage.getItem('theme');
+  if (currentTheme === 'light') {
+    document.body.classList.add('light-mode');
+    themeToggleBtn.textContent = '☀️';
+  } else {
+    themeToggleBtn.textContent = '🌙';
+  }
+
+  // Evento de clique para alternar
+  themeToggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    
+    let theme = 'dark';
+    if (document.body.classList.contains('light-mode')) {
+      theme = 'light';
+      themeToggleBtn.textContent = '☀️';
+    } else {
+      themeToggleBtn.textContent = '🌙';
+    }
+    
+    // Salva no navegador para manter a preferência ao recarregar a página
+    localStorage.setItem('theme', theme);
+  });
+</script>
 </body>
 </html>
