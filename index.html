@@ -23,11 +23,32 @@
     
     <!-- ESTILOS CSS -->
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
 <!-- 📌 CABEÇALHO FIXO COM GLASSMORPHISM -->
 <header class="header">
+
+    <div class="header__actions">
+        <!-- Botão para Alternar Tema -->
+        <button id="theme-toggle" class="btn-icon" aria-label="Alternar Tema">
+            <span class="theme-icon">🌙</span>
+        </button>
+
+        <!-- Botão Hambúrguer para Telas Menores -->
+        <button id="menu-toggle" class="btn-icon btn-menu" aria-label="Abrir Menu">
+            <span class="hamburger"></span>
+        </button>
+    </div>
+
+    <!-- Navegação (receberá a classe 'header__nav--active' via JS) -->
+    <nav class="header__nav" id="header-nav">
+        <a href="#beneficios" class="header__link">Benefícios</a>
+        <a href="#faq" class="header__link">FAQ</a>
+        <a href="#newsletter" class="header__link">Novidades</a>
+    </nav>
+    
     <div class="header__brand">
         <!--⚡ 2. PERFORMANCE: Dimensões explícitas na logo -->
         <img src="Gemini_Generated_Image_z8zp53z8zp53z8zp.jpg" alt="Logo Naididas" class="logo__img" width="36" height="36">
