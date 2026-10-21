@@ -28,11 +28,20 @@ if (formNewsletter) {
 // ==========================================================================
 const menuToggle = document.querySelector('#menu-toggle');
 const headerNav = document.querySelector('#header-nav');
+// Captura todos os links dentro do menu
+const navLinks = document.querySelectorAll('.header__link');
 
 if (menuToggle && headerNav) {
+    // Abre/fecha o menu ao clicar no botão hambúrguer
     menuToggle.addEventListener('click', function() {
-        // Usa a classe correta definida no seu CSS
         headerNav.classList.toggle('header__nav--active');
+    });
+
+    // Percorre todos os links e adiciona o evento de fechar o menu ao clicar
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            headerNav.classList.remove('header__nav--active');
+        });
     });
 }
 
