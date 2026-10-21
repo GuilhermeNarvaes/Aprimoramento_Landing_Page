@@ -46,20 +46,24 @@ if (menuToggle && headerNav) {
     });
 }
 
-// ALTERNADOR DE TEMA (DARK / LIGHT MODE)
 const themeToggle = document.querySelector('#theme-toggle');
 const themeIcon = document.querySelector('.theme-icon');
 
 if (themeToggle) {
     themeToggle.addEventListener('click', function() {
-        // Alterna a classe 'light-theme' no <body>
-        document.body.classList.toggle('light-theme');
+        // Verifica o tema atual no atributo 'data-theme' da tag <html>
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        
+        // Descobre a preferência do sistema operacional caso não tenha atributo definido
+        const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
-        // Troca o ícone de Lua (🌙) para Sol (☀️) dependendo do estado
-        if (document.body.classList.contains('light-theme')) {
-            themeIcon.textContent = '☀️';
-        } else {
+        // Lógica: Se está claro, força escuro. Se está escuro, força claro.
+        if (currentTheme === 'light' || (!currentTheme && prefersLight)) {
+            document.documentElement.setAttribute('data-theme', 'dark');
             themeIcon.textContent = '🌙';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            themeIcon.textContent = '☀️';
         }
     });
 }
