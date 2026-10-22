@@ -147,7 +147,7 @@ body {
 
     /* Classe ativada via JavaScript */
     .header__nav.header__nav--active {
-        display: flex; /* Exibe o menu quando a classe for adicionada pelo JS */
+        display: flex !important; /* Exibe o menu quando a classe for adicionada pelo JS */
     }
 
     /* Mostra o botão dos 3 traços quando a janela for menor que 868px */
