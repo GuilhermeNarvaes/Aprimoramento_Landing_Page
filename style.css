@@ -132,7 +132,7 @@ body {
   display: none; 
 }
 
-@media (max-width: 868px) {
+@media (max-width: 768px) {
     .header__nav {
         display: none; /* Escondido por padrão no mobile */
         position: absolute;
@@ -152,17 +152,14 @@ body {
 
     /* Mostra o botão dos 3 traços quando a janela for menor que 868px */
     .menu-toggle {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-    }
+  display: none !important; 
 }
 
 .header__actions {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
 
 body.light-theme {
@@ -554,10 +551,32 @@ body.light-theme {
     padding: 14px 5%;
   }
 
+  /* Esconde os links normais e cria o bloco suspenso */
   .header__nav {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--bg-card);
+    flex-direction: column;
+    padding: 20px;
+    border-bottom: 1px solid var(--color-border);
   }
 
+  /* Classe ativada via JavaScript para abrir o menu */
+  .header__nav.header__nav--active {
+    display: flex;
+  }
+
+  /* Força a exibição do botão Hambúrguer apenas no mobile */
+  .menu-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Ajustes da Seção Hero para Mobile */
   .hero {
     flex-direction: column;
     text-align: center;
