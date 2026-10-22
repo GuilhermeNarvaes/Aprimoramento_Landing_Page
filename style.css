@@ -126,6 +126,12 @@ body {
   
 }
 
+/* Esconde o botão dos 3 traços no modo Desktop */
+
+.menu-toggle {
+  display: none; 
+}
+
 @media (max-width: 868px) {
     .header__nav {
         display: none; /* Escondido por padrão no mobile */
@@ -142,6 +148,13 @@ body {
     /* Classe ativada via JavaScript */
     .header__nav.header__nav--active {
         display: flex; /* Exibe o menu quando a classe for adicionada pelo JS */
+    }
+
+    /* Mostra o botão dos 3 traços quando a janela for menor que 868px */
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
