@@ -152,7 +152,7 @@ body {
 
     /* Mostra o botão dos 3 traços quando a janela for menor que 868px */
     .menu-toggle {
-        display: flex;
+        display: none;
         align-items: center;
         justify-content: center;
     }
