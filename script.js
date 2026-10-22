@@ -26,9 +26,9 @@ if (formNewsletter) {
 // ==========================================================================
 // 2. MENU MOBILE (HAMBÚRGUER)
 // ==========================================================================
-const menuToggle = document.querySelector('#menu-toggle');
+const menuToggle = document.querySelector('.menu-toggle'); 
 const headerNav = document.querySelector('#header-nav');
-// Captura todos os links dentro do menu
+
 const navLinks = document.querySelectorAll('.header__link');
 
 if (menuToggle && headerNav) {
