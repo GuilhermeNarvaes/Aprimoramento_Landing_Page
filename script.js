@@ -1,12 +1,11 @@
 // ==========================================================================
-// 1. INTERATIVIDADE E VALIDAÇÃO DA NEWSLETTER (CÓDIGO UNIFICADO)
+// 1. INTERATIVIDADE E VALIDAÇÃO DA NEWSLETTER
 // ==========================================================================
 const formNewsletter = document.querySelector('.newsletter__form');
 const inputEmail = document.querySelector('.newsletter__input');
 const btnSubmit = document.querySelector('.btn--form');
 
 if (formNewsletter && inputEmail) {
-    // Criação dinâmica da mensagem de feedback
     const feedbackText = document.createElement('small');
     feedbackText.style.display = 'block';
     feedbackText.style.marginTop = '8px';
@@ -14,42 +13,36 @@ if (formNewsletter && inputEmail) {
     feedbackText.style.fontWeight = '600';
     inputEmail.parentNode.appendChild(feedbackText);
 
-    // Função que valida o formulário via regex
     function validarEmail(email) {
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regexEmail.test(email); // Retorna true ou false
+        return regexEmail.test(email);
     }
 
     formNewsletter.addEventListener('submit', function(event) {
-        event.preventDefault(); // Bloqueia o envio do formulário enquanto validamos
+        event.preventDefault(); 
         const emailValor = inputEmail.value.trim();
 
-        // CHECAGEM DE ERRO: Campo vazio ou e-mail fora do padrão
         if (!validarEmail(emailValor)) {
             feedbackText.textContent = '❌ Por favor, digite um e-mail válido (ex: nome@dominio.com).';
-            feedbackText.style.color = '#ef4444'; // Vermelho
+            feedbackText.style.color = '#ef4444'; 
             inputEmail.style.borderColor = '#ef4444';
-            inputEmail.focus(); // Coloca o cursor de volta no campo
-        } 
-        // SUCESSO
-        else {
+            inputEmail.focus(); 
+        } else {
             feedbackText.textContent = '✅ Inscrição realizada com sucesso!';
-            feedbackText.style.color = '#22c55e'; // Verde
+            feedbackText.style.color = '#22c55e'; 
             inputEmail.style.borderColor = '#22c55e';
 
-            // Efeito visual no botão (da sua primeira versão)
             if (btnSubmit) {
                 btnSubmit.textContent = 'Inscrição Confirmada! 🎉';
                 btnSubmit.style.backgroundColor = '#22c55e'; 
             }
 
-            inputEmail.value = ''; // Limpa o campo
+            inputEmail.value = ''; 
             console.log(`[Sucesso] E-mail cadastrado: ${emailValor}`);
 
-            // Oculta a mensagem de sucesso e reseta o botão após 4 segundos
             setTimeout(function() {
                 feedbackText.textContent = '';
-                inputEmail.style.borderColor = ''; // Restaura a borda padrão
+                inputEmail.style.borderColor = ''; 
                 
                 if (btnSubmit) {
                     btnSubmit.textContent = 'Quero Desconto 🎁';
@@ -80,27 +73,7 @@ if (menuToggle && headerNav) {
 }
 
 // ==========================================================================
-// // 3. ALTERNADOR DE TEMA (DARK / LIGHT MODE)
-// // ==========================================================================
-// const themeToggle = document.querySelector('#theme-toggle');
-// const themeIcon = document.querySelector('.theme-icon');
-
-// if (themeToggle && themeIcon) {
-//     themeToggle.addEventListener('click', function() {
-//         const currentTheme = document.documentElement.getAttribute('data-theme');
-//         const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-
-//         if (currentTheme === 'light' || (!currentTheme && prefersLight)) {
-//             document.documentElement.setAttribute('data-theme', 'dark');
-//             themeIcon.textContent = '🌙';
-//         } else {
-//             document.documentElement.setAttribute('data-theme', 'light');
-//             themeIcon.textContent = '☀️';
-//         }
-//     });
-// }
-
-// MÓDULO 3: PERSISTÊNCIA E SOBREPOSIÇÃO DO TEMA (LOCALSTORAGE)
+// 3. ALTERNADOR DE TEMA COM LOCALSTORAGE (DARK / LIGHT MODE)
 // ==========================================================================
 const themeToggle = document.querySelector('#theme-toggle');
 const themeIcon = document.querySelector('.theme-icon');
@@ -108,44 +81,35 @@ const themeIcon = document.querySelector('.theme-icon');
 if (themeToggle && themeIcon) {
     // 1. LER A PREFERÊNCIA SALVA AO CARREGAR A PÁGINA
     const temaSalvo = localStorage.getItem('temaPreferido');
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
-    // Força o tema salvo ignorando o sistema operacional
-    if (temaSalvo === 'light') {
-        document.body.classList.add('light-theme');
-        document.body.classList.remove('dark-theme');
+    // Lógica: Usa o tema salvo. Se não houver tema salvo, olha a preferência do sistema.
+    if (temaSalvo === 'light' || (!temaSalvo && prefersLight)) {
+        document.documentElement.setAttribute('data-theme', 'light');
         themeIcon.textContent = '☀️';
-    } else if (temaSalvo === 'dark') {
-        document.body.classList.add('dark-theme');
-        document.body.classList.remove('light-theme');
+    } else if (temaSalvo === 'dark' || (!temaSalvo && !prefersLight)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
         themeIcon.textContent = '🌙';
     }
 
     // 2. ALTERNAR O TEMA AO CLICAR NO BOTÃO
     themeToggle.addEventListener('click', function() {
-        // Verifica qual tema está ativo agora. 
-        // Se não tiver classe, checamos se o sistema operacional é claro.
-        const isLightClass = document.body.classList.contains('light-theme');
-        const isDarkClass = document.body.classList.contains('dark-theme');
-        const sistemaEClaro = window.matchMedia('(prefers-color-scheme: light)').matches;
-
+        // Pega o tema atual direto do atributo do HTML
+        const currentTheme = document.documentElement.getAttribute('data-theme');
         let novoTema;
 
-        // Lógica: se o site está claro, muda para escuro. Senão, muda para claro.
-        if (isLightClass || (!isLightClass && !isDarkClass && sistemaEClaro)) {
-            // Mudando para o Escuro
-            document.body.classList.remove('light-theme');
-            document.body.classList.add('dark-theme');
+        // Se está claro, muda para escuro. Senão, muda para claro.
+        if (currentTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'dark');
             themeIcon.textContent = '🌙';
             novoTema = 'dark';
         } else {
-            // Mudando para o Claro
-            document.body.classList.remove('dark-theme');
-            document.body.classList.add('light-theme');
+            document.documentElement.setAttribute('data-theme', 'light');
             themeIcon.textContent = '☀️';
             novoTema = 'light';
         }
 
-        // Salva a escolha no navegador
+        // Salva a escolha no navegador (no localStorage)
         localStorage.setItem('temaPreferido', novoTema);
         console.log(`[LocalStorage] Preferência atualizada para: ${novoTema}`);
     });
