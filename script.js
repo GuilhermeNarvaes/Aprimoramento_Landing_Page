@@ -92,7 +92,7 @@ if (themeToggle && themeIcon) {
         themeIcon.textContent = '🌙';
     }
 
-    // 2. ALTERNAR O TEMA AO CLICAR NO BOTÃO
+    // 2. MUDAR O TEMA AO CLICAR NO BOTÃO
     themeToggle.addEventListener('click', function() {
         // Pega o tema atual direto do atributo do HTML
         const currentTheme = document.documentElement.getAttribute('data-theme');
