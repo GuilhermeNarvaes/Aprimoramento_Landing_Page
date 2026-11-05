@@ -80,22 +80,73 @@ if (menuToggle && headerNav) {
 }
 
 // ==========================================================================
-// 3. ALTERNADOR DE TEMA (DARK / LIGHT MODE)
+// // 3. ALTERNADOR DE TEMA (DARK / LIGHT MODE)
+// // ==========================================================================
+// const themeToggle = document.querySelector('#theme-toggle');
+// const themeIcon = document.querySelector('.theme-icon');
+
+// if (themeToggle && themeIcon) {
+//     themeToggle.addEventListener('click', function() {
+//         const currentTheme = document.documentElement.getAttribute('data-theme');
+//         const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+//         if (currentTheme === 'light' || (!currentTheme && prefersLight)) {
+//             document.documentElement.setAttribute('data-theme', 'dark');
+//             themeIcon.textContent = '🌙';
+//         } else {
+//             document.documentElement.setAttribute('data-theme', 'light');
+//             themeIcon.textContent = '☀️';
+//         }
+//     });
+// }
+
+// MÓDULO 3: PERSISTÊNCIA E SOBREPOSIÇÃO DO TEMA (LOCALSTORAGE)
 // ==========================================================================
 const themeToggle = document.querySelector('#theme-toggle');
 const themeIcon = document.querySelector('.theme-icon');
 
 if (themeToggle && themeIcon) {
-    themeToggle.addEventListener('click', function() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    // 1. LER A PREFERÊNCIA SALVA AO CARREGAR A PÁGINA
+    const temaSalvo = localStorage.getItem('temaPreferido');
 
-        if (currentTheme === 'light' || (!currentTheme && prefersLight)) {
-            document.documentElement.setAttribute('data-theme', 'dark');
+    // Força o tema salvo ignorando o sistema operacional
+    if (temaSalvo === 'light') {
+        document.body.classList.add('light-theme');
+        document.body.classList.remove('dark-theme');
+        themeIcon.textContent = '☀️';
+    } else if (temaSalvo === 'dark') {
+        document.body.classList.add('dark-theme');
+        document.body.classList.remove('light-theme');
+        themeIcon.textContent = '🌙';
+    }
+
+    // 2. ALTERNAR O TEMA AO CLICAR NO BOTÃO
+    themeToggle.addEventListener('click', function() {
+        // Verifica qual tema está ativo agora. 
+        // Se não tiver classe, checamos se o sistema operacional é claro.
+        const isLightClass = document.body.classList.contains('light-theme');
+        const isDarkClass = document.body.classList.contains('dark-theme');
+        const sistemaEClaro = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+        let novoTema;
+
+        // Lógica: se o site está claro, muda para escuro. Senão, muda para claro.
+        if (isLightClass || (!isLightClass && !isDarkClass && sistemaEClaro)) {
+            // Mudando para o Escuro
+            document.body.classList.remove('light-theme');
+            document.body.classList.add('dark-theme');
             themeIcon.textContent = '🌙';
+            novoTema = 'dark';
         } else {
-            document.documentElement.setAttribute('data-theme', 'light');
+            // Mudando para o Claro
+            document.body.classList.remove('dark-theme');
+            document.body.classList.add('light-theme');
             themeIcon.textContent = '☀️';
+            novoTema = 'light';
         }
+
+        // Salva a escolha no navegador
+        localStorage.setItem('temaPreferido', novoTema);
+        console.log(`[LocalStorage] Preferência atualizada para: ${novoTema}`);
     });
 }
