@@ -83,8 +83,8 @@ body {
     font-size: 0.9rem;
     font-weight: 500;
     
-    /* MODIFICADO AQUI: Começa escondido para não piscar */
-    display: none; 
+    /* MODIFICADO AQUI: Volta a ser flex para aparecer sempre */
+    display: flex; 
     
     justify-content: center;
     align-items: center;

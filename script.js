@@ -116,23 +116,14 @@ if (themeToggle && themeIcon) {
 }
 
 // ==========================================================================
-// 4. AVISO DE PROJETO ACADÊMICO
+// 4. AVISO DE PROJETO ACADÊMICO (SEMPRE VISÍVEL AO ATUALIZAR)
 // ==========================================================================
 const studentWarning = document.querySelector('#student-warning');
 const closeWarningBtn = document.querySelector('#close-warning');
 
 if (studentWarning && closeWarningBtn) {
-    // Busca a nova chave no navegador
-    const avisoFechado = localStorage.getItem('avisoEstudanteFechado_v2');
-
-    // Se o aviso AINDA NÃO foi fechado, nós alteramos para flex (exibindo a barra)
-    if (avisoFechado !== 'true') {
-        studentWarning.style.display = 'flex'; 
-    }
-
-    // Quando clicar em fechar
+    // Apenas esconde a barra ao clicar no 'X', sem salvar nada no navegador
     closeWarningBtn.addEventListener('click', function() {
         studentWarning.style.display = 'none'; 
-        localStorage.setItem('avisoEstudanteFechado_v2', 'true'); 
     });
 }
