@@ -122,16 +122,17 @@ const studentWarning = document.querySelector('#student-warning');
 const closeWarningBtn = document.querySelector('#close-warning');
 
 if (studentWarning && closeWarningBtn) {
-    // 1. Verifica se o usuário já fechou o aviso no passado
-    const avisoFechado = localStorage.getItem('avisoEstudanteFechado');
+    // Busca a nova chave no navegador
+    const avisoFechado = localStorage.getItem('avisoEstudanteFechado_v2');
 
-    if (avisoFechado === 'true') {
-        studentWarning.style.display = 'none'; // Esconde a barra imediatamente
+    // Se o aviso AINDA NÃO foi fechado, nós alteramos para flex (exibindo a barra)
+    if (avisoFechado !== 'true') {
+        studentWarning.style.display = 'flex'; 
     }
 
-    // 2. Quando clicar no botão de fechar (✖)
+    // Quando clicar em fechar
     closeWarningBtn.addEventListener('click', function() {
-        studentWarning.style.display = 'none'; // Some com a barra
-        localStorage.setItem('avisoEstudanteFechado', 'true'); // Salva a escolha
+        studentWarning.style.display = 'none'; 
+        localStorage.setItem('avisoEstudanteFechado_v2', 'true'); 
     });
 }

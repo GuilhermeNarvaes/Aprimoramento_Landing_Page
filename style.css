@@ -77,17 +77,20 @@ body {
    AVISO DE PROJETO ACADÊMICO
    ========================================================================== */
 .student-warning {
-    background-color: #fbbf24; /* Amarelo de alerta */
-    color: #1e3a8a; /* Texto escuro para garantir bom contraste e acessibilidade */
+    background-color: #fbbf24; 
+    color: #1e3a8a; 
     padding: 10px 20px;
     font-size: 0.9rem;
     font-weight: 500;
-    display: flex;
+    
+    /* MODIFICADO AQUI: Começa escondido para não piscar */
+    display: none; 
+    
     justify-content: center;
     align-items: center;
     gap: 15px;
     position: relative;
-    z-index: 9999; /* Garante que fique por cima do menu (glassmorphism) */
+    z-index: 9999; 
 }
 
 .student-warning p {
