@@ -76,42 +76,59 @@ body {
 /* ==========================================================================
    AVISO DE PROJETO ACADÊMICO
    ========================================================================== */
+/* ==========================================================================
+   AVISO DE PROJETO ACADÊMICO (ESTILO MODAL DE ERRO)
+   ========================================================================== */
 .student-warning {
-    background-color: #fbbf24; 
-    color: #1e3a8a; 
-    padding: 10px 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
+    /* Posicionamento no centro da tela */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000; /* Fica acima de todos os elementos do site */
     
-    /* MODIFICADO AQUI: Volta a ser flex para aparecer sempre */
+    /* Visual de Erro/Alerta */
+    background-color: #fee2e2; /* Fundo vermelho bem claro */
+    color: #991b1b; /* Texto em vermelho escuro */
+    border: 2px solid #ef4444; /* Borda vermelha padrão */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Sombra forte para destacar */
+    
+    /* Tamanho e espaçamento interno */
+    width: 90%;
+    max-width: 400px;
+    padding: 24px;
+    
+    /* Organiza o texto e o botão em coluna */
     display: flex; 
-    
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    gap: 15px;
-    position: relative;
-    z-index: 9999; 
+    text-align: center;
+    gap: 20px;
 }
 
 .student-warning p {
     margin: 0;
-    text-align: center;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
+/* Estilo do novo botão "Entendi" */
 .student-warning__close {
-    background: none;
+    background-color: #ef4444;
+    color: #ffffff;
     border: none;
-    color: inherit;
-    font-size: 1.1rem;
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
     cursor: pointer;
-    padding: 5px;
-    transition: opacity 0.2s;
-    display: flex;
-    align-items: center;
+    transition: background-color 0.2s ease;
+    width: 100%; /* Botão ocupa a largura total da caixa */
 }
 
 .student-warning__close:hover {
-    opacity: 0.6;
+    background-color: #dc2626; /* Fica mais escuro ao passar o mouse */
 }
 
 .sr-only {
