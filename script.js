@@ -114,3 +114,24 @@ if (themeToggle && themeIcon) {
         console.log(`[LocalStorage] Preferência atualizada para: ${novoTema}`);
     });
 }
+
+// ==========================================================================
+// 4. AVISO DE PROJETO ACADÊMICO
+// ==========================================================================
+const studentWarning = document.querySelector('#student-warning');
+const closeWarningBtn = document.querySelector('#close-warning');
+
+if (studentWarning && closeWarningBtn) {
+    // 1. Verifica se o usuário já fechou o aviso no passado
+    const avisoFechado = localStorage.getItem('avisoEstudanteFechado');
+
+    if (avisoFechado === 'true') {
+        studentWarning.style.display = 'none'; // Esconde a barra imediatamente
+    }
+
+    // 2. Quando clicar no botão de fechar (✖)
+    closeWarningBtn.addEventListener('click', function() {
+        studentWarning.style.display = 'none'; // Some com a barra
+        localStorage.setItem('avisoEstudanteFechado', 'true'); // Salva a escolha
+    });
+}

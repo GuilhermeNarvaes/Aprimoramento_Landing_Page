@@ -73,6 +73,44 @@ body {
   width: 100%;
 }
 
+/* ==========================================================================
+   AVISO DE PROJETO ACADÊMICO
+   ========================================================================== */
+.student-warning {
+    background-color: #fbbf24; /* Amarelo de alerta */
+    color: #1e3a8a; /* Texto escuro para garantir bom contraste e acessibilidade */
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    z-index: 9999; /* Garante que fique por cima do menu (glassmorphism) */
+}
+
+.student-warning p {
+    margin: 0;
+    text-align: center;
+}
+
+.student-warning__close {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.student-warning__close:hover {
+    opacity: 0.6;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
