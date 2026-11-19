@@ -670,3 +670,48 @@ body.light-theme {
     break-inside: avoid;
   }
 }
+
+/* ==========================================================================
+   BOTÃO DE TEMA NEON
+   ========================================================================== */
+.theme-neon-btn {
+    background: transparent;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    
+    /* Configuração Padrão (Modo Escuro / Azul Alienígena) */
+    color: #06b6d4; /* Ciano */
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.1);
+}
+
+.theme-neon-btn:hover {
+    /* Brilho Neon Ciano ao passar o mouse */
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.6), inset 0 0 10px rgba(6, 182, 212, 0.3);
+    background-color: rgba(6, 182, 212, 0.05);
+}
+
+/* Configuração do Modo Claro (Sol / Amarelo) */
+[data-theme="light"] .theme-neon-btn {
+    color: #f59e0b; /* Amarelo/Laranja */
+    border-color: rgba(245, 158, 11, 0.3);
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.1);
+}
+
+[data-theme="light"] .theme-neon-btn:hover {
+    /* Brilho Neon Amarelo ao passar o mouse */
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.6), inset 0 0 10px rgba(245, 158, 11, 0.3);
+    background-color: rgba(245, 158, 11, 0.05);
+}
+
+/* Lógica de exibição dos ícones */
+.icon-moon { display: block; }
+.icon-sun { display: none; }
+
+[data-theme="light"] .icon-moon { display: none; }
+[data-theme="light"] .icon-sun { display: block; }

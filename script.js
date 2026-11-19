@@ -76,42 +76,32 @@ if (menuToggle && headerNav) {
 // 3. ALTERNADOR DE TEMA COM LOCALSTORAGE (DARK / LIGHT MODE)
 // ==========================================================================
 const themeToggle = document.querySelector('#theme-toggle');
-const themeIcon = document.querySelector('.theme-icon');
 
-if (themeToggle && themeIcon) {
-    // 1. LER A PREFERÊNCIA SALVA AO CARREGAR A PÁGINA
+if (themeToggle) {
     const temaSalvo = localStorage.getItem('temaPreferido');
     const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
-    // Lógica: Usa o tema salvo. Se não houver tema salvo, olha a preferência do sistema.
+    // Define o tema ao carregar a página
     if (temaSalvo === 'light' || (!temaSalvo && prefersLight)) {
         document.documentElement.setAttribute('data-theme', 'light');
-        themeIcon.textContent = '☀️';
     } else if (temaSalvo === 'dark' || (!temaSalvo && !prefersLight)) {
         document.documentElement.setAttribute('data-theme', 'dark');
-        themeIcon.textContent = '🌙';
     }
 
-    // 2. MUDAR O TEMA AO CLICAR NO BOTÃO
+    // Alterna o tema ao clicar
     themeToggle.addEventListener('click', function() {
-        // Pega o tema atual direto do atributo do HTML
         const currentTheme = document.documentElement.getAttribute('data-theme');
         let novoTema;
 
-        // Se está claro, muda para escuro. Senão, muda para claro.
         if (currentTheme === 'light') {
             document.documentElement.setAttribute('data-theme', 'dark');
-            themeIcon.textContent = '🌙';
             novoTema = 'dark';
         } else {
             document.documentElement.setAttribute('data-theme', 'light');
-            themeIcon.textContent = '☀️';
             novoTema = 'light';
         }
 
-        // Salva a escolha no navegador (no localStorage)
         localStorage.setItem('temaPreferido', novoTema);
-        console.log(`[LocalStorage] Preferência atualizada para: ${novoTema}`);
     });
 }
 
