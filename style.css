@@ -672,8 +672,9 @@ body.light-theme {
 }
 
 /* ==========================================================================
-   BOTÃO DE TEMA NEON
+   BOTÃO DE TEMA NEON (UX FOCADA NA AÇÃO)
    ========================================================================== */
+/* 1. Configuração Padrão (Site no Modo Escuro) -> Mostra o SOL (Amarelo) */
 .theme-neon-btn {
     background: transparent;
     border-radius: 50%;
@@ -684,34 +685,35 @@ body.light-theme {
     justify-content: center;
     transition: all 0.3s ease;
     
-    /* Configuração Padrão (Modo Escuro / Azul Alienígena) */
-    color: #06b6d4; /* Ciano */
-    border: 1px solid rgba(6, 182, 212, 0.3);
-    box-shadow: 0 0 10px rgba(6, 182, 212, 0.1);
-}
-
-.theme-neon-btn:hover {
-    /* Brilho Neon Ciano ao passar o mouse */
-    box-shadow: 0 0 15px rgba(6, 182, 212, 0.6), inset 0 0 10px rgba(6, 182, 212, 0.3);
-    background-color: rgba(6, 182, 212, 0.05);
-}
-
-/* Configuração do Modo Claro (Sol / Amarelo) */
-[data-theme="light"] .theme-neon-btn {
-    color: #f59e0b; /* Amarelo/Laranja */
-    border-color: rgba(245, 158, 11, 0.3);
+    /* Cores e Brilho do Sol */
+    color: #f59e0b; 
+    border: 1px solid rgba(245, 158, 11, 0.3);
     box-shadow: 0 0 10px rgba(245, 158, 11, 0.1);
 }
 
-[data-theme="light"] .theme-neon-btn:hover {
-    /* Brilho Neon Amarelo ao passar o mouse */
+.theme-neon-btn:hover {
     box-shadow: 0 0 15px rgba(245, 158, 11, 0.6), inset 0 0 10px rgba(245, 158, 11, 0.3);
     background-color: rgba(245, 158, 11, 0.05);
 }
 
-/* Lógica de exibição dos ícones */
-.icon-moon { display: block; }
-.icon-sun { display: none; }
+/* 2. Configuração do Modo Claro (Site no Modo Claro) -> Mostra a LUA (Ciano) */
+[data-theme="light"] .theme-neon-btn {
+    /* Cores e Brilho da Lua */
+    color: #06b6d4; 
+    border-color: rgba(6, 182, 212, 0.3);
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.1);
+}
 
-[data-theme="light"] .icon-moon { display: none; }
-[data-theme="light"] .icon-sun { display: block; }
+[data-theme="light"] .theme-neon-btn:hover {
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.6), inset 0 0 10px rgba(6, 182, 212, 0.3);
+    background-color: rgba(6, 182, 212, 0.05);
+}
+
+/* 3. Lógica de exibição dos ícones (Invertida) */
+/* Por padrão (site escuro): esconde a Lua, mostra o Sol */
+.icon-moon { display: none; }
+.icon-sun { display: block; }
+
+/* Quando o site está claro: mostra a Lua, esconde o Sol */
+[data-theme="light"] .icon-moon { display: block; }
+[data-theme="light"] .icon-sun { display: none; }
